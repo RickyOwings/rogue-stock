@@ -169,7 +169,7 @@ CREATE TABLE ShareValues_${name}(
 `);
 	query2.run();
 
-	// Inserting an initial share value into the new ShareValues_[*] table
+	// 
 	const query3 = database.prepare(`
 INSERT INTO ShareValues_${name} (value)
 VALUES (${shareValue});
@@ -178,28 +178,14 @@ VALUES (${shareValue});
 	query3.run();
 }
 
-/**
- * @param {string} stock 
- * @description removes stocks from the database. 
- */
-export function removeStock(stock) {
-	// TODO: Implement removing stocks
+export function removeStock(/** @type {string} */stock) {
 	if (database === null) {
 		console.log("Database doesn't exist");
 		return false;
 	}
-	// Remove the record from Stocks
-	// Remove the ShareValues_[*] table
 }
 
-
-
-/**
- * @param {string} stock - The name of the stock
- * @returns {boolean} Whether or not the stock exists
- * @description Queries the database for if a stock exists
- */
-export function stockExists(stock) {
+export function stockExists(/** @type {string} */stock) {
 	if (database === null) {
 		console.log("Database doesn't exist");
 		return false;
@@ -218,12 +204,7 @@ WHERE name='${stock}'
 }
 
 
-/**
- * @description 
- * Returns a database query for all of the stocks in the Stock table
- * Parses the query using the stockSchema to ensure the data is what
- * we expect it to be.
- */
+
 export function getStocks() {
 	if (database === null) {
 		return null;
@@ -244,14 +225,7 @@ SELECT * FROM Stocks;
 	return null;
 }
 
-
-/**
- * @param {string} name 
- * @description
- * Function which returns the share values stored in the table ShareValues[*]
- * Data from the SQL query is validated using the shareValuesSchema
- */
-export function getShareValues(name) {
+export function getShareValues(/** @type {string} */ name) {
 	if (database === null) {
 		return null;
 	}
@@ -269,14 +243,7 @@ SELECT * FROM ShareValues_${name};
 	return null;
 }
 
-
-/**
- * @param {string} name 
- * @param {number} value 
- * @description
- * Adds a stock values into the ShareValues_[*] table
- */
-export function addStockValue(name, value) {
+export function addStockValue(/** @type {string} */ name, /** @type {number} */value) {
 	if (database === null) {
 		return;
 	}
@@ -294,7 +261,6 @@ VALUES (${value});
  * @param {string} param0.name 
  * @param {number} [param0.volatility]
  * @param {number} [param0.shareValue]
- * @description Changes the values in the Stocks table
  */ 
 export function updateStock({
 	name,
@@ -329,14 +295,7 @@ WHERE name='${name}';
 	}
 }
 
-
-/** 
- * @param {string} name 
- * @param {number} [amount=1] 
- * @description
- * Prevents the ShareValues_[*] table from exceeding a given amount
- */
-function limitShareValues(name, amount = 1) {
+function limitShareValues(/** @type {string} */ name, amount = 1) {
 	if (database === null) return;
 	const query = database.prepare(`
 DELETE FROM ShareValues_${name}
