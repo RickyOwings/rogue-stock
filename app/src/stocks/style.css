@@ -1,0 +1,11 @@
+@import url("../variables.css");
+
+.stock {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: var(--secondary-background-color);
+	& h2 {
+		text-decoration: underline dotted;
+	}
+}

@@ -1,0 +1,91 @@
+@import url('../variables.css');
+
+#modal {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	left: 0;
+	top: 0;
+
+	background-color: #0008;
+	backdrop-filter: blur(10px);
+	transition: opacity 0.4s;
+	opacity: 1;
+	z-index: 10000;
+}
+
+#modal[target="none"] {
+	pointer-events: none;
+	backdrop-filter: blur(0px);	
+	opacity: 0;
+	user-select: none
+}
+
+.modal-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	--padding: var(--main-padding);
+	background: var(--main-background-color);
+	color: var(--main-text-color);
+	padding: var(--padding);
+	border-radius: var(--padding);
+	width: max(min-content, 100px);
+	height: max(min-content, 100px);
+	filter: drop-shadow(0px 0px 10px black);
+	transition: width 0.5s, height 0.5s, translate 0.5s;
+	overflow: hidden;
+	& h1 {
+		text-align: center;
+		text-decoration: underline;
+		& img {
+			height: 40px;
+			translate: 0px 10px;
+			user-select: none;
+			filter: drop-shadow(0px 0px 10px #000a);
+		}
+	}
+	& .btn {
+		width: 200px;
+	}
+}
+
+.close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 50px;
+}
+
+.open {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 50px;
+	user-select: none;
+	cursor: pointer;
+
+	transition: 0.1s scale;
+	scale: 1;
+	&:hover {
+		scale: 1.1;
+	}
+	&:active {
+		scale: 0.9;
+	}
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 50px;
+}
+
+#modal .invisible {
+	width: 0px;
+	height: 0px;
+	padding: 0px;
+	translate: 0px -100dvh;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="./src/style.css"/>
+	</head>
+	<body>
+		<div 
+			id="modal"
+			target="#start"
+		>
+			<div id="start" template="/templates/start.html"></div>
+			<div id="about" template="/templates/about.html"></div>
+			<div id="reset" template="/templates/reset.html"></div>
+			<img class="close selectable" src="./src/modal/close.svg" modal-action="none"></img>
+		</div>
+		<div template="/templates/app.html"></div>
+		<script type="module" src='./src/index.js'></script>
+	</body>
+</html>

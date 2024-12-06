@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100..700&family=Pixelify+Sans:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Silkscreen:wght@400;700&display=swap');
+@import url("./variables.css");
+@import url("./modal/style.css");
+@import url("./navbar.css");
+@import url("./selectable.css");
+@import url("./icon.css");
+@import url("./app.css");
+@import url("./stocks/style.css");
+
+body {
+	margin: 0;
+	color: var(--main-text-color);
+	background-color: var(--main-background-color);
+	font-family: "Roboto", sans-serif;
+}
+
+.btn {
+	filter: drop-shadow(0px 0px 10px #0004);
+	background-color: var(--secondary-background-color);
+	padding: var(--main-padding);
+	text-align: center;
+	margin: var(--main-margin);
+	border-radius: var(--main-padding);
+	cursor: pointer;
+	user-select: none;
+	scale: 1;
+	transition: scale 0.1s;
+
+	&:hover {
+		scale: 1.1;
+	}
+	&:active {
+		scale: 0.9;
+	}
+}
+
+#reset {
+}
